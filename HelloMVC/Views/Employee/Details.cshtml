@@ -1,0 +1,47 @@
+﻿@model HelloMVC.Models.Employee
+
+@{
+    ViewBag.Title = "Employee Details";
+}
+
+<div>
+    <h2>Employee Details</h2>
+
+    <table>
+        <tr>
+            <td>
+                <b>Employee ID :</b>
+            </td>
+            <td>
+                @Model.ID
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Employee Name :</b>
+            </td>
+            <td>
+                @Model.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Gender :</b>
+            </td>
+            <td>
+                @Model.Gender
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Department ID :</b>
+            </td>
+            <td>
+                @Model.DepartmentId
+            </td>
+        </tr>
+    </table>
+
+    @Html.ActionLink("Back to List", "Index", new { departmentId = Model.DepartmentId })
+
+</div>

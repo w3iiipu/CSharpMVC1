@@ -8,9 +8,35 @@ namespace HelloMVC.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public string Index(string name)
         {
+            return "Hello World " + name;
+            
+        }
+        public ActionResult Index1()
+        {
+            //ViewBag - Uses Dynamic properties - does not provide compile time error checking - stored as name/value pairs in ViewData dictionary
+            ViewBag.Countries = new List<string>()
+            {
+                "USA", "Germany", "Singapore", "Canada"
+            };
+
+            //ViewData - Uses Keys - does not provide compile time error checking
+            ViewData["Countries"] = new List<string>()
+            {
+                "USA", "Germany", "Singapore", "Canada"
+            };
+
             return View();
+        }
+
+        /// <summary>
+        /// This method returns the version of MVC
+        /// </summary>
+        /// <returns></returns>
+        public string MVCVersion()
+        {
+            return typeof(Controller).Assembly.GetName().Version.ToString();
         }
 
         public ActionResult About()

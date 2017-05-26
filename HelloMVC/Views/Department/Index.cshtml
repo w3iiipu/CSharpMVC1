@@ -1,0 +1,25 @@
+﻿@using HelloMVC.Models;
+
+@model IEnumerable<Department>
+
+@{
+    ViewBag.Title = "Deparments List";
+}
+
+<div style="font-family:Arial">
+    <h2>Departments List</h2>
+
+    <ul>
+        @foreach (Department department in Model)
+        {
+            <li>
+                <!--Html helper using 
+                    actionlink(linktext(what to show), the action method to call in controller, controller, the parameter for the method, html attributes)-->
+                @Html.ActionLink(department.Name, "Index","Employee", new { departmentId = department.ID }, null)
+            </li>
+        }
+
+    </ul>
+
+    
+</div>
